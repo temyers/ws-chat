@@ -10,9 +10,9 @@ server {
     server_name testsvr;
 
     # Works directly (and with ELB is client forwarded properly?)
-    #listen 443 ssl;
+    listen 443 ssl;
 
-    listen 443 ssl proxy_protocol;
+    #listen 443 ssl proxy_protocol;
     
     ssl_certificate     /etc/nginx/test-cert.pem;
     ssl_certificate_key /etc/nginx/test-cert.key;
