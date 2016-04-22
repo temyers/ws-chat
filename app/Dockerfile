@@ -25,4 +25,5 @@ ADD . /app
 
 # Start everything up
 EXPOSE 80
+EXPOSE 443
 CMD nginx && python3 web-server.py & python3 ws-server.py
