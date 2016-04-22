@@ -6,6 +6,12 @@ With reference to:
 
 Playing with AWS + ELB and SSL passthrough and SSL Termination and Proxy Protocol
 
+CAVEAT:
+There are no SSL certificates included in this repo.
+Notice the `nginx/test-cert.key` and `nginx/test-cert.pem` are included in the configuration but ignored (.gitignore)
+You will need to create a certificate:
+ * https://letsencrypt.org/
+
 Build the image:
 
 ```
