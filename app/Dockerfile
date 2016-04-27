@@ -10,7 +10,8 @@ RUN apt-get install -y python3 python3-pip
 RUN apt-get install -y software-properties-common \
     && add-apt-repository -y ppa:nginx/stable \
     && apt-get update \
-    && apt-get upgrade -y nginx
+    && apt-get upgrade -y haproxy   
+#    && apt-get upgrade -y nginx
 
 # Make sure everything is running shiny new versions
 RUN apt-get dist-upgrade -y
@@ -20,10 +21,12 @@ ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 # Upload the application
-ADD nginx /etc/nginx
+#ADD nginx /etc/nginx
+#ADD haproxy /etc/haproxy
 ADD . /app
 
 # Start everything up
 EXPOSE 80
 EXPOSE 443
-CMD nginx && python3 web-server.py & python3 ws-server.py
+#CMD haproxy && python3 web-server.py & python3 ws-server.py
+CMD python3 web-server.py & python3 ws-server.py
